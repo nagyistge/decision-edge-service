@@ -1,0 +1,16 @@
+spring:
+  application:
+     name: Zuul                                           # This will be our Service ID
+
+zuul:
+  routes:
+    decisions: /decisions/**                              # Any HTTP requests routed here,
+    # others: /are/welcome/to/add                         # Would be handled by Zuul
+
+server:
+  port: 8765
+
+eureka:                                                   # Zuul, our Edge Service,
+  client:                                                 # registers with Eureka,
+    serviceUrl:                                           # like any other service
+      defaultZone: http://localhost:1111/eureka/
